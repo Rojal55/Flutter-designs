@@ -1,9 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 
 class CardTemp extends StatelessWidget {
-
   final String amount;
   final int expiryMonth;
   final int expiryYear;
@@ -18,13 +15,12 @@ class CardTemp extends StatelessWidget {
     required this.expiryYear,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Container(
-        padding: EdgeInsets.all(35),
+        padding: EdgeInsets.symmetric(horizontal: 35),
         width: 300,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
@@ -34,7 +30,18 @@ class CardTemp extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 10,
+              height: 20,
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  width: 225,
+                ),
+                Text(
+                  'VISA',
+                  style: TextStyle(fontSize: 30, color: Colors.blue[300]),
+                ),
+              ],
             ),
             Text(
               'Balance',

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:design5_wallet/images/utils/buttons.dart';
 import 'package:design5_wallet/images/utils/card_template.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -22,25 +23,35 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Container(
+                height: 40,
+                child: Image.asset('lib/images/home.png'),
+              ),
+            ),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Container(
+              height: 40,
+              child: Image.asset('lib/images/setting.png'),
+            ),
             label: "",
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.pink[200],
         
+        onPressed: () {},
+        backgroundColor: Colors.blue[300],
         child: Padding(
           padding: const EdgeInsets.all(13.0),
           child: Image.asset('lib/images/scan.png'),
         ),
-        
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      
       body: SafeArea(
         child: Column(
           children: [
@@ -132,96 +143,33 @@ class _HomePageState extends State<HomePage> {
                   dotColor: Colors.grey.shade400),
             ),
 
+            //buttons
+            SizedBox(
+              height: 10,
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // send button
-                  
-                  SizedBox(
-                    width: 16,
+                  Buttons(
+                    btnName: 'Send',
+                    imageAsset: 'lib/images/send.png',
                   ),
-                  // pay button
-                  Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey.shade200),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Container(
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey.shade200),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Image.asset(
-                              'lib/images/credit-card.png',
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      Text(
-                        'Pay',
-                        style: TextStyle(fontSize: 16, color: Colors.grey[500]),
-                      )
-                    ],
+                  Buttons(
+                    btnName: 'Pay',
+                    imageAsset: 'lib/images/credit-card.png',
                   ),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  //Bills button
-                  Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey.shade200),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Container(
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey.shade200),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Image.asset(
-                              'lib/images/bills.png',
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      Text(
-                        'Bills',
-                        style: TextStyle(fontSize: 16, color: Colors.grey[500]),
-                      )
-                    ],
+                  Buttons(
+                    btnName: 'Bills',
+                    imageAsset: 'lib/images/bills.png',
                   ),
                 ],
               ),
             ),
+
+            // transactionss
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
