@@ -7,9 +7,13 @@ class CardTemp extends StatelessWidget {
   final String amount;
   final int expiryMonth;
   final int expiryYear;
+  final int cardNumber;
+  final color;
 
   CardTemp({
     required this.amount,
+    required this.color,
+    required this.cardNumber,
     required this.expiryMonth,
     required this.expiryYear,
   });
@@ -24,7 +28,7 @@ class CardTemp extends StatelessWidget {
         width: 300,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
-          color: Colors.deepPurple[300],
+          color: color,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,11 +54,11 @@ class CardTemp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '**** 3456',
+                  cardNumber.toString(),
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 Text(
-                  '10/24',
+                  expiryMonth.toString() + "/" + expiryYear.toString(),
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ],
