@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:design4_med/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -31,36 +29,33 @@ class _HomePageState extends State<HomePage> {
       }
     }
 
-    return slant()
-        ? Scaffold(
-            body: Container(color: Colors.amber),
-          )
-        : Scaffold(
-            bottomNavigationBar: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.grey[200],
-              elevation: 0,
-              currentIndex: _selectedIndex,
-              onTap: onSelected,
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home_outlined),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.chat_bubble_outline_rounded),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.notifications_none_rounded),
-                  label: "",
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.calendar_month_outlined),
-                  label: "",
-                ),
-              ],
-            ),
-            body: Home());
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.grey[200],
+        elevation: 0,
+        currentIndex: _selectedIndex,
+        onTap: onSelected,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_outline_rounded),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications_none_rounded),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_month_outlined),
+            label: "",
+          ),
+        ],
+      ),
+      body: Home(),
+    );
   }
 }
